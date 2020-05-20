@@ -1,10 +1,11 @@
 import { FETCH_RANDOM_FACT, SAGA_FETCH_RANDOM_FACT, SAGA_FETCH_CATEGORIES_FACTS, FETCH_CATEGORIES_FACTS } from './typesAction'
-import { IFact, IActionRandomFact, IActionDefault, IActionCategories } from '../../interfaces';
+import { IFact, IActionRandomFact, IActionDefault, IActionCategories, IActionSagaRandomFact } from '../../interfaces';
 
 
-export const sagaActionFetchRandomFact = (): IActionDefault => {
+export const sagaActionFetchRandomFact = (category: string): IActionSagaRandomFact => {
   return {
-    type: SAGA_FETCH_RANDOM_FACT
+    type: SAGA_FETCH_RANDOM_FACT,
+    category: category
   }
 }
 export const actionFetchRandomFact = (fact: IFact): IActionRandomFact => {

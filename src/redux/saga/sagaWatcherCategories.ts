@@ -1,14 +1,14 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeLatest, put, call } from 'redux-saga/effects';
 import { SAGA_FETCH_CATEGORIES_FACTS } from '../actions/typesAction';
 import { actionFetchCategories } from '../actions/actionsFacts';
 
 export function* sagaWatcherCategories() {
-  yield takeEvery(SAGA_FETCH_CATEGORIES_FACTS, sagaFetchCategories)
+  yield takeLatest(SAGA_FETCH_CATEGORIES_FACTS, sagaFetchCategories)
 }
 
 // Categories -->
 function* sagaFetchCategories() {
-  const payload = yield fetchCategories()
+  const payload = yield call(fetchCategories)
   yield put(actionFetchCategories(payload))
 }
 

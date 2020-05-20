@@ -2,6 +2,10 @@ export interface IActionDefault {
   type: string
 }
 
+export interface IActionSagaRandomFact extends IActionDefault {
+  category: string
+}
+
 export interface IActionRandomFact extends IActionDefault {
   payload: IFact
 }

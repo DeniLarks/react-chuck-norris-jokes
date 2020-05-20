@@ -1,18 +1,18 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeLatest, put, call } from 'redux-saga/effects';
 import { SAGA_FETCH_RANDOM_FACT } from '../actions/typesAction';
 import { actionFetchRandomFact } from '../actions/actionsFacts';
-import { IFact } from '../../interfaces';
+import { IFact, IActionSagaRandomFact } from '../../interfaces';
 import { translateText } from './translateText';
 
 export function* sagaWatcherRandomFact() {
-  yield takeEvery(SAGA_FETCH_RANDOM_FACT, sagaFetchRandomFact)
+  yield takeLatest(SAGA_FETCH_RANDOM_FACT, sagaFetchRandomFact)
 }
 
 
 // Random fact -->
-function* sagaFetchRandomFact() {
-  const payload = yield fetchRandomFact()
-  const translate = yield translateText(payload.value)
+function* sagaFetchRandomFact(action: IActionSagaRandomFact) {
+  const payload = yield call(fetchRandomFact, action.category)
+  const translate = yield call(translateText, payload.value)
 
   const fact: IFact = {
     id: payload.id,
@@ -24,8 +24,15 @@ function* sagaFetchRandomFact() {
   yield put(actionFetchRandomFact(fact))
 }
 
-async function fetchRandomFact() {
-  const response = await fetch('https://api.chucknorris.io/jokes/random')
+async function fetchRandomFact(category: string) {
+  
+  const query = category 
+        ? `?category=${category}` 
+        : ''
+
+  console.log('!!!', query)
+  
+  const response = await fetch(`https://api.chucknorris.io/jokes/random${query}`)
   return await response.json()
 }
 // <-- Random fact
