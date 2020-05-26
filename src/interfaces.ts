@@ -29,6 +29,11 @@ export interface IStateFacts {
   categories: string[]
 }
 
+export interface IStateApp {
+  loadFact: boolean
+}
+
 export interface IState {
   facts: IStateFacts
+  app: IStateApp
 }

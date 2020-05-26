@@ -1,0 +1,46 @@
+$colorFill: #004d40;
+$colorFillLoad: #004d40;
+
+.btn-loader {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+    transition: all .5s ease-in-out;
+
+    path {
+      fill: $colorFill;
+    }
+  }
+
+  &:hover {
+    opacity: .8;
+
+    svg { transform: rotate(5deg); }
+  }
+
+  &.active-load {
+    svg { 
+      animation: rotate 1s ease-in-out infinite;
+      
+      path {
+        fill: $colorFillLoad;
+      }
+    }
+  }
+  
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

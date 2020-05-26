@@ -4,9 +4,10 @@ import { sagaActionFetchRandomFact } from '../redux/actions/actionsFacts';
 
 interface IBtncategoryProps {
   title: string
+  query: string
 }
 
-export const BtnCategory:React.FC<IBtncategoryProps> = ({title}) => {
+export const BtnCategory:React.FC<IBtncategoryProps> = ({title, query}) => {
   const dispatch = useDispatch()
 
   const clickBtn = (category: string) => {
@@ -15,7 +16,7 @@ export const BtnCategory:React.FC<IBtncategoryProps> = ({title}) => {
 
   return(
     <>
-      <button onClick={clickBtn.bind(null, title)}>{title}</button>
+      <button className="btn" onClick={clickBtn.bind(null, query)}>{title}</button>
     </>
   )
 }
