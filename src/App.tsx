@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { sagaActionFetchRandomFact, sagaActionFetchCategories } from './redux/actions/actionsFacts';
@@ -13,8 +13,6 @@ function App() {
   const dispatch = useDispatch()
   const randomFact: IFact | null = useSelector((state: IState) => state.facts.randomFact)
   const categories: string[] = useSelector((state: IState) => state.facts.categories)
-  const [isViewIntro, setIsViewIntro] = useState(true) 
-  const closePopup = useCallback(() => setIsViewIntro(false), [setIsViewIntro])
   const isLoad: boolean = useSelector((state: IState) => state.app.loadFact)
 
   useEffect(() => {
@@ -27,7 +25,7 @@ function App() {
 
   return (  
     <>
-      {isViewIntro && <Intro close={closePopup} />}
+      <Intro />
 
       <div className="container">
         

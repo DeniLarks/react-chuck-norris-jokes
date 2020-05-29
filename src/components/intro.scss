@@ -9,6 +9,15 @@
   justify-content: center;
   background-color: rgba($color: #fff, $alpha: .5);
 
+  a {
+    color: #074943;
+    transition: opacity .5s ease-in-out;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
   &__container {
     width: 50%;
     padding: 30px;
@@ -20,5 +29,30 @@
   .btn {
     padding: 5px 10px;
     border-radius: 5px;
+  }
+}
+
+.intro {
+  &-enter {
+    .intro__container {
+      opacity: 0;
+      transform: translateY(-300px);
+    }
+    
+    &-active {
+      .intro__container {
+        transform: translateY(0);
+        opacity: 1;
+        transition: all 1000ms ease-out;
+      }
+    }
+  }
+
+  &-exit-active {
+    .intro__container {
+      opacity: 0;
+      transform: translateY(300px);
+      transition: all 1000ms ease-out;
+    }
   }
 }

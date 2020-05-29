@@ -1,27 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './intro.scss';
+import { CSSTransition } from 'react-transition-group';
 
-interface IntroProps {
-  close: () => void
-}
+export const Intro: React.FC = () => {
+  const [isView, setIsView] = useState(false)
 
-export const Intro: React.FC<IntroProps> = ({close}) => {
+  useEffect(() => {
+    setIsView(true)
+  }, [])
 
   const handleClick = (event: React.MouseEvent) => {
     if(event.target === event.currentTarget) {
-      close()
+      setIsView(false)
     }
   }
 
   return(
-    <div className="intro" onClick={handleClick}>
-      <div className="intro__container">
-        <p>
-          Это React-приложение через API <a href="https://api.chucknorris.io/" target="blank">https://api.chucknorris.io/</a> получает шуточные, фейковые факты о Чаке Норрисе. Это приложение (как и шутки, получаемые от <a href="https://api.chucknorris.io/" target="blank">https://api.chucknorris.io/</a>) разработано только для развлекательных целей и не претендует на правдивость.
-        </p>
-        
-        <button className="btn" onClick={close}>OK</button>
+    <CSSTransition
+      in={isView}
+      timeout={1000}
+      classNames={'intro'}
+      mountOnEnter
+      unmountOnExit  
+    >
+      <div className="intro" onClick={handleClick}>
+        <div className="intro__container">
+          <p>
+            Это React-приложение через API <a href="https://api.chucknorris.io/" target="blank">https://api.chucknorris.io/</a> получает шуточные, фейковые факты о Чаке Норрисе. Это приложение (как и шутки, получаемые от <a href="https://api.chucknorris.io/" target="blank">https://api.chucknorris.io/</a>) разработано только для развлекательных целей и не претендует на правдивость.
+          </p>
+          
+          <button 
+            className="btn"
+            onClick={() => setIsView(false)}
+          >OK</button>
+        </div>
       </div>
-    </div>
+    </CSSTransition>
   )
 }
