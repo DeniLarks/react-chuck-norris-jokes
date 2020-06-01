@@ -18,7 +18,7 @@
 <h3>Функционал приложения</h3>
 <p>Приложение, состоящее из одной страницы по <a href="https://api.chucknorris.io/">API chucknorris.io</a> получает случайный шуточный факт о Чаке Норисе.</p>
 <p>Реализована возможность получить случайную шутку по категории(тематики). Например: фильмы, деньги и т.д.</p>
-<p>Реализовано перевод английского текста на русский через API <a href="http://translate.yandex.ru">«Яндекс.Переводчик»</a></p>
+<p>Реализован перевод английского текста на русский через API <a href="http://translate.yandex.ru">«Яндекс.Переводчик»</a></p>
 <p>Приложение развернуто на <a href="https://firebase.google.com/products/hosting">Firebase hosting</a></p>
 
 <a href="https://react-chuck-norris-jokes.web.app/">Перейти к приложениию</a>
