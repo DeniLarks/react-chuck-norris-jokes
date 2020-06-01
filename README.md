@@ -3,8 +3,11 @@
 <h3>В приложении используется</h3>
 <ul>
   <li><a href="https://ru.reactjs.org/">React</a></li>
+  <li><a href="https://www.npmjs.com/package/react-router-dom">React router dom</a></li>
   <li><a href="https://www.npmjs.com/package/node-sass">Scss(node-sass)</a></li>
   <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
+  <li><a href="https://redux.js.org/">Redux</a></li>
+  <li><a href="https://github.com/reduxjs/react-redux">React-redux</a></li>
   <li><a href="https://redux-saga.js.org/">Redux-saga</a></li>
   <li><a href="https://reactcommunity.org/react-transition-group/">React transition group</a></li>
   <li><a href="https://api.chucknorris.io/">API chucknorris.io</a></li>
